@@ -5,126 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project detail page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  {{% load static %}
+  <link rel="stylesheet" href="{% static "css/styles.css" %}">
 
 </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Task Board</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">All projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My tasks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My tasks</a>
-          </li>
 
-        </ul>
-          <button class="btn btn-outline-light mx-2">
-            Create project
-          </button>
-          <button class="btn btn-outline-light mx-2">
-            Create task
-          </button>
-
-
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Username</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
-          </li>
-        </ul>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light mx-2 " type="submit">Search</button>
-        </form>
-      </div>
     </nav>
   </header>
 
   <main role="main" class="container-body">
     <div class="row">
-
-      <div class="col-md-3 sidebar">
-        <div class="project-info">
-          <h4>Project statistic</h4>
-          <h5>Tasks:</h5>
-          <ul class="form-check-label">
-            <li>total number - 6</li>
-            <li>done - 3</li>
-            <li>in process - 2</li>
-            <li>expired - 1</li>
-          </ul>
-          <h5>Staff:</h5>
-          <ul class="form-check-label">
-            <li>total number - 6</li>
-          </ul>
-        </div>
-        <form>
-          <h5 >Filters</h5>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="1" id="in-dev-filter">
-            <label class="form-check-label" for="in-dev-filter">
-              In development
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="2" id="in-support-filter">
-            <label class="form-check-label" for="in-support-filter">
-              In support
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="3" id="deployed-filter">
-            <label class="form-check-label" for="deployed-filter">
-              Deployed
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="4" id="closed-filter">
-            <label class="form-check-label" for="closed-filter">
-              Closed
-            </label>
-          </div>
-          <hr>
-          <h5>Sort by</h5>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="sort-by" value="asc" id="sort-asc">
-            <label class="form-check-label" for="sort-asc">
-              Deadline ascending
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="sort-by" value="desc" id="sort-desc">
-            <label class="form-check-label" for="sort-desc">
-              Deadline descending
-            </label>
-          </div>
-        </form>
-      </div>
-
-      <div class="col-md-9">
-        <main role="main" class="container-fluid">
-          <div>
-            <h1>TODO list</h1>
-          </div>
-        </main>
-      </div>
+      {% include "includes/sidebar.html" %}
+      {% block content %}
+      {% endblock %}
     </div>
   </main>
 
