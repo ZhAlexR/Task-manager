@@ -4,7 +4,7 @@ from django.urls import reverse, reverse_lazy
 from django.views import generic
 
 from manager.forms import TaskForm
-from manager.models import Task
+from manager.models import Task, Tag
 
 
 def index_view(request):
@@ -31,3 +31,8 @@ class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
 class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Task
     success_url = reverse_lazy("manager:index")
+
+
+class TagListView(LoginRequiredMixin, generic.ListView):
+    model = Tag
+    template_name = "manager/tags.html"
