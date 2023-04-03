@@ -17,9 +17,13 @@
             <p>Created: {{ task.created_at|date:"d/m/y H:i" }}</p>
             <p>Deadline {{ task.deadline|date:"d/m/y H:i" }}</p>
             <p>Tags:</p>
-            {% for tag in task.tags.all %}
-              <p>{{ tag.name }}</p>
-            {% endfor %}
+            <div class="container">
+              <div class="tags">
+                {% for tag in task.tags.all %}
+                <div class="col">{{ tag.name }}</div>
+                {% endfor %}
+              </div>
+            </div>
           </div>
           <a class="btn btn-primary" href="{% url "manager:task-update" pk=task.pk %}"> Update</a>
           <a class="btn btn-danger" href="{% url "manager:task-delete" pk=task.pk %}"> Delete </a>

@@ -83,3 +83,15 @@
    .card-link:hover {
        color: #212529;
   }
+
+
+.tags {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: -20px;
+    display: inline-block;
+}
