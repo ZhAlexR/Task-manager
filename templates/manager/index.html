@@ -5,7 +5,26 @@
     <main role="main" class="container-fluid">
       <div>
         <h1 class="d-inline-block">TODO list</h1>
-        <a class="btn btn-primary float-right" href="{% url "manager:task-create" %}">Create task</a>
+        <a class="btn btn-success float-right" href="{% url "manager:task-create" %}">Create task</a>
+        <hr>
+      </div>
+      <div>
+        {% for task in tasks %}
+          <div>
+            <h2>{{ task.content }}</h2>
+            <h4>User: {{ task.user.username }}</h4>
+            <p>Status {{ task.completed }}</p>
+            <p>Created: {{ task.created_at|date:"d/m/y H:i" }}</p>
+            <p>Deadline {{ task.deadline|date:"d/m/y H:i" }}</p>
+            <p>Tags:</p>
+            {% for tag in task.tags.all %}
+              <p>{{ tag.name }}</p>
+            {% endfor %}
+          </div>
+          <a class="btn btn-primary" href="{% url "manager:task-update" pk=task.pk %}"> Update</a>
+          <a class="btn btn-danger" href="#"> Delete </a>
+          <hr>
+        {% endfor %}
       </div>
     </main>
   </div>
