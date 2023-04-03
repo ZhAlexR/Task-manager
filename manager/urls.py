@@ -6,5 +6,5 @@ app_name = "manager"
 
 urlpatterns = [
     path("", index_view, name="index"),
-    path("task/crate", TaskCreateView.as_view(), name="task")
+    path("task/crate/", TaskCreateView.as_view(), name="task-create")
 ]
