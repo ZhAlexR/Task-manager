@@ -4,7 +4,7 @@ from manager.views import (
     index_view,
     TaskCreateView,
     TaskUpdateView,
-    TaskDeleteView, TagListView, TagCreateView, TagUpdateView, TagDeleteView
+    TaskDeleteView, TagListView, TagCreateView, TagUpdateView, TagDeleteView, CreateUserView
 )
 
 app_name = "manager"
@@ -18,4 +18,6 @@ urlpatterns = [
     path("tags/crate/", TagCreateView.as_view(), name="tag-create"),
     path("tags/<int:pk>/update", TagUpdateView.as_view(), name="tag-update"),
     path("tags/<int:pk>/delete", TagDeleteView.as_view(), name="tag-delete"),
+    path("sign_up/", CreateUserView.as_view(), name="sign-up"),
+
 ]
