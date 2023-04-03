@@ -36,3 +36,9 @@ class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
     template_name = "manager/tags.html"
+
+
+class TagCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("manager:tag-list")
