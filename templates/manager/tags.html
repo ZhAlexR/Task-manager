@@ -4,7 +4,7 @@
   <div class="col-md-5">
     <div>
       <h1 class="d-inline-block">Tags</h1>
-      <a class="btn btn-success float-right" href="{% url "manager:task-create" %}">Add</a>
+      <a class="btn btn-success float-right" href="{% url "manager:tag-create" %}">Add</a>
       <hr>
     </div>
     {% if tag_list %}
@@ -23,10 +23,10 @@
                   <th scope="row">{{ forloop.counter }}</th>
                   <td>{{ tag.name }}</td>
                   <td>
-                    <a class="btn btn-primary" href="#">Update</a>
+                    <a class="btn btn-primary" href="{% url "manager:tag-update" pk=tag.pk %}">Update</a>
                   </td>
                   <td>
-                    <a class="btn btn-danger" href="#">Delete</a>
+                    <a class="btn btn-danger" href="{% url "manager:tag-delete" pk=tag.pk %}">Delete</a>
                   </td>
                 </tr>
               </tbody>
